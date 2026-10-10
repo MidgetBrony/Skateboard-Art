@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "skateboard-art",
+  "name": "Skateboard Art",
+  "author": "MidgetBrony",
+  "description": "Interactive custom artwork, positioning, and zoom controls for BOXROOM skateboards.",
+  "repository": "https://github.com/MidgetBrony/Skateboard-Art",
+  "requirements": {
+    "melonLoader": "0.7.0"
+  },
+  "dependencies": [
+    {
+      "manifest": "https://raw.githubusercontent.com/MidgetBrony/ModsPanel/refs/heads/master/manifest.json",
+      "minimumVersion": "2.7.0",
+      "required": true
+    }
+  ],
+  "release": {
+    "provider": "github",
+    "asset": "Skateboard-Art-*.zip",
+    "checksumAsset": "SHA256SUMS.txt",
+    "destination": "Mods"
+  }
+}
