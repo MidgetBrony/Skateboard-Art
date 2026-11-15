@@ -1,4 +1,4 @@
-# Skateboard Art 0.2.2 for BOXROOM
+# Skateboard Art 0.2.3 for BOXROOM
 
 Adds editable custom artwork to BOXROOM's three wall-mounted skateboard placeables.
 
@@ -27,3 +27,5 @@ The complete 0.2.2 workflow has been confirmed in BOXROOM: Change Art uses the n
 Version 0.2.1 binds transforms to the native painter's renderer/material slot and applies pan/zoom through a per-renderer property block, so the controls continue targeting the live material instance created by BOXROOM.
 
 Version 0.2.2 extends the native `GameImagePainter` save payload with the per-skateboard X/Y and zoom values. Older saves retain their selected artwork and begin persisting transforms after the artwork is adjusted and the room is saved again.
+
+Version 0.2.3 keeps the editor bound to the live image painter that opened it and reacquires a valid painter when necessary, so **Change Art** continues to work when BOXROOM has replaced an earlier collider painter.

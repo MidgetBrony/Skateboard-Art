@@ -13,7 +13,7 @@ using System.Security.Cryptography;
 using System.Threading.Tasks;
 using UnityEngine;
 
-[assembly: MelonInfo(typeof(BR_SkateboardArt.Core), "Skateboard Art", "0.2.2", "Rusty")]
+[assembly: MelonInfo(typeof(BR_SkateboardArt.Core), "Skateboard Art", "0.2.3", "Rusty")]
 [assembly: MelonGame("NestedLoop", "BOXROOM")]
 
 namespace BR_SkateboardArt;
@@ -75,7 +75,7 @@ internal static class SkateboardImageInteractionPatch
             return true;
         }
 
-        controller.OpenEditor();
+        controller.OpenEditor(__instance);
         return false;
     }
 }
@@ -329,11 +329,17 @@ public sealed class SkateboardArtController : MonoBehaviour, IPlaceable
         }
     }
 
-    public void OpenEditor()
+    public void OpenEditor(GameImagePainter sourcePainter = null)
     {
         if (!IsReady)
         {
             return;
+        }
+
+        if (sourcePainter != null &&
+            sourcePainter.GetComponentInParent<SkateboardArtController>() == this)
+        {
+            interactionPainter = sourcePainter;
         }
 
         if (activeEditor != null && activeEditor != this)
@@ -412,6 +418,20 @@ public sealed class SkateboardArtController : MonoBehaviour, IPlaceable
 
     private void BeginNativeImagePicker()
     {
+        if (interactionPainter == null)
+        {
+            GameImagePainter[] painters = GetComponentsInChildren<GameImagePainter>(true);
+            foreach (GameImagePainter painter in painters)
+            {
+                if (painter != null &&
+                    painter.GetComponentInParent<SkateboardArtController>() == this)
+                {
+                    interactionPainter = painter;
+                    break;
+                }
+            }
+        }
+
         if (interactionPainter == null)
         {
             ModsUi.ShowToast("The skateboard image target is unavailable.", 5f);
