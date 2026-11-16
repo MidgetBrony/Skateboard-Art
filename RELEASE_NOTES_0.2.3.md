@@ -4,4 +4,4 @@
 - Keeps each editor session bound to the live image painter that opened it.
 - Reacquires a valid skateboard painter if BOXROOM replaces the originally remembered collider component.
 
-Validation: Release build and local installation; live custom-image selection remains to be confirmed in BOXROOM.
+Validation: Release build, local installation, and live custom-image selection confirmed in BOXROOM.

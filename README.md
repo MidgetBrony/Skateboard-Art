@@ -22,7 +22,7 @@ The editor is rendered by ModsUi using its compact draggable-window mode, so it 
 
 ## Current validation
 
-The complete 0.2.2 workflow has been confirmed in BOXROOM: Change Art uses the native custom-image route, Move X/Y and Zoom update the live skateboard, and room save/load restores both the selected art and its transform values.
+The complete workflow has been confirmed in BOXROOM through 0.2.3: Change Art uses the native custom-image route, Move X/Y and Zoom update the live skateboard, and room save/load restores both the selected art and its transform values.
 
 Version 0.2.1 binds transforms to the native painter's renderer/material slot and applies pan/zoom through a per-renderer property block, so the controls continue targeting the live material instance created by BOXROOM.
 
